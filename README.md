@@ -4,7 +4,6 @@
 
 CloudSentinel is a security research platform concept that turns cloud configuration data into **explainable attack paths**. Instead of presenting a flat list of misconfigurations, it connects identity trust, permissions, network reachability, and asset criticality to show which combinations create the most dangerous routes to sensitive resources.
 
-This repository contains a polished, interactive MVP for a job-profile application. It includes the full product surface and a small deterministic reasoning engine that powers the demo analysis state.
 
 ## Product surface
 
@@ -35,7 +34,7 @@ The demo engine is intentionally deterministic:
 4. A before/after graph can be compared to identify broken paths and regressions.
 5. Confirmed paths can become reusable regression-test assertions.
 
-The UI currently uses a safe local fixture so it can be run without cloud credentials. It does **not** connect to or modify an actual cloud account.
+The UI currently uses a safe local fixture so it can be run without cloud credentials.
 
 ## Run locally
 
@@ -55,7 +54,7 @@ npm run build
 
 ## Security posture for a production implementation
 
-The next production layer would add:
+The next layer would add:
 
 - read-only AWS/GCP/Azure collectors or signed export ingestion;
 - tenant-scoped storage for graph snapshots, findings, evidence, and audit events;
@@ -66,10 +65,3 @@ The next production layer would add:
 - background graph builds with idempotent job processing.
 
 Any attack simulation should remain opt-in, allowlisted, bounded, and isolated to a controlled lab or explicitly authorized environment.
-
-## Portfolio talking points
-
-- “I designed the core product around relationships, not isolated severity labels.”
-- “AI proposes hypotheses; deterministic graph rules verify reachability.”
-- “Every high-risk result includes evidence, assumptions, confidence, and the smallest path-breaking change.”
-- “Remediation is treated as a measurable hypothesis: validate the path disappeared and check for regressions.”
